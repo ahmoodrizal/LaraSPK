@@ -1,7 +1,7 @@
 <!-- Desktop sidebar -->
 <aside class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0">
     <div class="py-4 text-gray-500 dark:text-gray-400">
-        <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
+        <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="{{ route('dashboard') }}">
             Aplikasi SPK
         </a>
         <ul class="mt-6">
@@ -21,7 +21,7 @@
             </li>
         </ul>
         <div class="px-6 my-6">
-            <a href="#"
+            <a href="{{ route('dashboard.create') }}"
                 class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
                 Buat Studi Kasus
                 <span class="ml-2" aria-hidden="true">+</span>
@@ -43,7 +43,7 @@
     x-transition:leave-end="opacity-0 transform -translate-x-20" @click.away="closeSideMenu"
     @keydown.escape="closeSideMenu">
     <div class="py-4 text-gray-500 dark:text-gray-400">
-        <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
+        <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="{{ route('dashboard') }}">
             Aplikasi SPK
         </a>
         <ul class="mt-6">
@@ -63,7 +63,7 @@
             </li>
         </ul>
         <div class="px-6 my-6">
-            <a href="#"
+            <a href="{{ route('dashboard.create') }}"
                 class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
                 Buat Studi Kasus
                 <span class="ml-2" aria-hidden="true">+</span>
