@@ -31,7 +31,7 @@
                                 {{ $loop->index + 1 }}
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                {{ $project->name }}
+                                {{ $project->nameeawdwadawe }}
                             </td>
                             <td class="px-4 py-3 text-sm">
                                 {{ $project->method }}
