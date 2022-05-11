@@ -28,16 +28,16 @@
                     @forelse ($projects as $project)
                         <tr class="text-gray-700 dark:text-gray-400">
                             <td class="px-4 py-3 text-sm">
-                                1
+                                {{ $loop->index + 1 }}
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                Pemilihan E-Wallet Terbaik
+                                {{ $project->name }}
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                SAW
+                                {{ $project->method }}
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                6/10/2020
+                                {{ $project->created_at->format('d M Y') }}
                             </td>
                             <td class="px-4 py-3 text-xs">
                                 <span
