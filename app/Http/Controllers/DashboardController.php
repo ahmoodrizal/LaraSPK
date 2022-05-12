@@ -52,6 +52,7 @@ class DashboardController extends Controller
                 'c3' => Alternative::max('c4')
             ]
         ]);
+
         // return $data;
         return view('pages.project.index', compact('project', 'data'));
     }

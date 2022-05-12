@@ -6,15 +6,13 @@
     <div class="w-full overflow-x-auto">
         <table class="w-full whitespace-no-wrap">
             <thead>
-
                 <tr
                     class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                     <th class="px-4 py-3">Alternative Code</th>
                     <th class="px-4 py-3">Alternative Name</th>
-                    <th class="px-4 py-3">C1</th>
-                    <th class="px-4 py-3">C2</th>
-                    <th class="px-4 py-3">C3</th>
-                    <th class="px-4 py-3">C4</th>
+                    @foreach ($project->criterias as $criteria)
+                        <th class="px-4 py-3">C{{ $loop->index + 1 }}</th>
+                    @endforeach
                 </tr>
             </thead>
             <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
@@ -27,16 +25,16 @@
                             {{ $alternative->name }}
                         </td>
                         <td class="px-4 py-3 text-sm">
-                            {{ $alternative->c1 / 100 }}
+                            {{ number_format((($alternative->c1 - $data['min']['c0']) / 100 / ($data['max']['c0'] - $data['min']['c0']) / 100) * 10000, 3) }}
                         </td>
                         <td class="px-4 py-3 text-sm">
-                            {{ $alternative->c2 / 100 }}
+                            {{ number_format((($alternative->c1 - $data['min']['c1']) / 100 / ($data['max']['c1'] - $data['min']['c1']) / 100) * 10000, 3) }}
                         </td>
                         <td class="px-4 py-3 text-sm">
-                            {{ $alternative->c3 / 100 }}
+                            {{ number_format((($alternative->c1 - $data['min']['c2']) / 100 / ($data['max']['c2'] - $data['min']['c2']) / 100) * 10000, 3) }}
                         </td>
                         <td class="px-4 py-3 text-sm">
-                            {{ $alternative->c4 / 100 }}
+                            {{ number_format((($alternative->c1 - $data['min']['c3']) / 100 / ($data['max']['c3'] - $data['min']['c3']) / 100) * 10000, 3) }}
                         </td>
                     </tr>
                 @empty

@@ -24,10 +24,10 @@
                             {{ $criteria->name }}
                         </td>
                         <td class="px-4 py-3 text-sm">
-                            {{ $data['min']['c' . $loop->index] }}
+                            {{ $data['min']['c' . $loop->index] / 100 }}
                         </td>
                         <td class="px-4 py-3 text-sm">
-                            {{ $data['max']['c' . $loop->index] }}
+                            {{ $data['max']['c' . $loop->index] / 100 }}
                         </td>
                     </tr>
                 @endforeach
