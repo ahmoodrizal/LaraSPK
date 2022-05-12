@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alternative;
+use App\Models\Criteria;
 use App\Models\Project;
 use Illuminate\Support\Str;
 use Facade\FlareClient\View;
+use GuzzleHttp\Handler\Proxy;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -35,8 +38,21 @@ class DashboardController extends Controller
 
     public function show(Project $project)
     {
-        return view('pages.project.index', [
-            'project' => $project
+        $data = collect([
+            'min' => [
+                'c0' => Alternative::min('c1'),
+                'c1' => Alternative::min('c2'),
+                'c2' => Alternative::min('c3'),
+                'c3' => Alternative::min('c4')
+            ],
+            'max' => [
+                'c0' => Alternative::max('c1'),
+                'c1' => Alternative::max('c2'),
+                'c2' => Alternative::max('c3'),
+                'c3' => Alternative::max('c4')
+            ]
         ]);
+        // return $data;
+        return view('pages.project.index', compact('project', 'data'));
     }
 }

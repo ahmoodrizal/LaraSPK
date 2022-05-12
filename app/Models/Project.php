@@ -14,8 +14,20 @@ class Project extends Model
         'name', 'slug', 'method'
     ];
 
+    protected $with = ['criterias', 'alternatives'];
+
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    public function criterias()
+    {
+        return $this->hasMany(Criteria::class);
+    }
+
+    public function alternatives()
+    {
+        return $this->hasMany(Alternative::class);
     }
 }
