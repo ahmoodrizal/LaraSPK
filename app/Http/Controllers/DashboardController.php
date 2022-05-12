@@ -32,4 +32,11 @@ class DashboardController extends Controller
 
         return redirect(route('dashboard'))->with('success', 'Sukes Menambahkan Studi Kasus Baru');
     }
+
+    public function show(Project $project)
+    {
+        return view('pages.project.index', [
+            'project' => $project
+        ]);
+    }
 }

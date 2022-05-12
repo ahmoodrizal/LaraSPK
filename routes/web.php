@@ -21,3 +21,5 @@ Route::get('/', function () {
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('dashboard/create', [DashboardController::class, 'create'])->name('dashboard.create');
 Route::post('dashboard/create', [DashboardController::class, 'store'])->name('dashboard.store');
+
+Route::get('dashboard/{project}', [DashboardController::class, 'show'])->name('dashboard.show');
