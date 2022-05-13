@@ -8,4 +8,5 @@
     @include('pages.project.alternative')
     @include('pages.project.step1')
     @include('pages.project.step2')
+    @include('pages.project.step3')
 @endsection
