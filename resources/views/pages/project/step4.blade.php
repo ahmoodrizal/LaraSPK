@@ -14,14 +14,16 @@
                 </tr>
             </thead>
             <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                <tr class="text-gray-700 dark:text-gray-400">
-                    <td class="px-4 py-3 text-sm">
-                        lorem
-                    </td>
-                    <td class="px-4 py-3 text-sm">
-                        lorem
-                    </td>
-                </tr>
+                @foreach ($project->alternatives as $alternative)
+                    <tr class="text-gray-700 dark:text-gray-400">
+                        <td class="px-4 py-3 text-sm">
+                            {{ $alternative->name }}
+                        </td>
+                        <td class="px-4 py-3 text-sm">
+                            {{ $alternative->c1 + $alternative->c2 + $alternative->c3 + $alternative->c4 }}
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

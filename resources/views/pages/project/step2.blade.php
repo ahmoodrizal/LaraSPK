@@ -25,16 +25,16 @@
                             {{ $alternative->name }}
                         </td>
                         <td class="px-4 py-3 text-sm">
-                            {{ number_format((($alternative->c1 - $data['min']['c0']) / 100 / ($data['max']['c0'] - $data['min']['c0']) / 100) * 10000, 3) }}
+                            {{ number_format((($alternative->c1 - $data['min']['c0']) / 100 / ($data['max']['c0'] - $data['min']['c0']) / 1000) * 1000, 2) }}
                         </td>
                         <td class="px-4 py-3 text-sm">
-                            {{ number_format((($alternative->c2 - $data['min']['c1']) / 100 / ($data['max']['c1'] - $data['min']['c1']) / 100) * 10000, 3) }}
+                            {{ number_format((($alternative->c2 - $data['min']['c1']) / 100 / ($data['max']['c1'] - $data['min']['c1']) / 1000) * 1000, 2) }}
                         </td>
                         <td class="px-4 py-3 text-sm">
-                            {{ number_format((($alternative->c3 - $data['min']['c2']) / 100 / ($data['max']['c2'] - $data['min']['c2']) / 100) * 10000, 3) }}
+                            {{ number_format((($alternative->c3 - $data['min']['c2']) / 100 / ($data['max']['c2'] - $data['min']['c2']) / 1000) * 1000, 2) }}
                         </td>
                         <td class="px-4 py-3 text-sm">
-                            {{ number_format((($alternative->c4 - $data['min']['c3']) / 100 / ($data['max']['c3'] - $data['min']['c3']) / 100) * 10000, 3) }}
+                            {{ number_format((($alternative->c4 - $data['min']['c3']) / 100 / ($data['max']['c3'] - $data['min']['c3']) / 1000) * 1000, 2) }}
                         </td>
                     </tr>
                 @empty
