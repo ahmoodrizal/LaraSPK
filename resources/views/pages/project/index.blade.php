@@ -9,4 +9,5 @@
     @include('pages.project.step1')
     @include('pages.project.step2')
     @include('pages.project.step3')
+    @include('pages.project.step4')
 @endsection
