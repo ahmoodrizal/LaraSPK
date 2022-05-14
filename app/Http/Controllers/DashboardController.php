@@ -56,4 +56,22 @@ class DashboardController extends Controller
         // return $data;
         return view('pages.project.index', compact('project', 'data'));
     }
+
+    public function createAlt(Project $project)
+    {
+        $project->makeHidden(['criterias', 'alternatives']);
+
+        return view('pages.dashboard.create-alternative', compact('project'));
+    }
+
+    public function storeAlt(Request $request, Project $project)
+    {
+        $data = $request->all();
+        $data['project_id'] = $project->id;
+        $data['slug'] = Str::slug($request['name']);
+
+        Alternative::create($data);
+
+        return redirect()->route('dashboard.show', $project->slug)->with('success', 'Sukes Menambahkan Data Alternative');
+    }
 }
