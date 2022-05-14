@@ -23,7 +23,9 @@
             @include('pages.project.step1')
             @include('pages.project.step2')
             @include('pages.project.step3')
-            @include('pages.project.step4')
+            @if ($project->alternatives->sum('result') != null)
+                @include('pages.project.step4')
+            @endif
         @endif
     @endif
 @endsection

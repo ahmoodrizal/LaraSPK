@@ -14,7 +14,7 @@
                 </tr>
             </thead>
             <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                @forelse ($project->alternatives as $alternative)
+                @forelse ($project->alternatives->sortByDesc('result') as $alternative)
                     <tr class="text-gray-700 dark:text-gray-400">
                         <td class="px-4 py-3 text-sm">
                             {{ $loop->index + 1 }}

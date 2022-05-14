@@ -127,7 +127,6 @@ class DashboardController extends Controller
 
     public function calculate(Request $request, Alternative $alternative)
     {
-        $project = Project::whereId($alternative->project_id)->first();
         $data = $request->except('id', 'totalScore');
         $data['alternatives_id'] = $request['id'];
         $data['total_score'] = $request['totalScore'];
