@@ -27,9 +27,11 @@ Route::get('dashboard/{project}', [DashboardController::class, 'show'])->name('d
 // Project Alternative
 Route::get('dashboard/{project}/create-alternative', [DashboardController::class, 'createAlt'])->name('dashboard.createAlt');
 Route::post('dashboard/{project}/create-alternative', [DashboardController::class, 'storeAlt'])->name('dashboard.storeAlt');
-Route::get('dashboard/{project}/{alternative}/edit', [DashboardController::class, 'editAlt'])->name('dashboard.editAlt');
-Route::put('dashboard/{project}/{alternative}/edit', [DashboardController::class, 'updateAlt'])->name('dashboard.updateAlt');
+Route::get('dashboard/{project}/{alternative}/edit-alternative', [DashboardController::class, 'editAlt'])->name('dashboard.editAlt');
+Route::put('dashboard/{project}/{alternative}/edit-alternative', [DashboardController::class, 'updateAlt'])->name('dashboard.updateAlt');
 
 // Project Criteria
 Route::get('dashboard/{project}/create-criteria', [DashboardController::class, 'createCrt'])->name('dashboard.createCrt');
 Route::post('dashboard/{project}/create-criteria', [DashboardController::class, 'storeCrt'])->name('dashboard.storeCrt');
+Route::get('dashboard/{project}/{criteria}/edit-criteria', [DashboardController::class, 'editCrt'])->name('dashboard.editCrt');
+Route::put('dashboard/{project}/{criteria}/edit-criteria', [DashboardController::class, 'updateCrt'])->name('dashboard.updateCrt');

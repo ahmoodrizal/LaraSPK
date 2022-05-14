@@ -106,4 +106,21 @@ class DashboardController extends Controller
         // return $data;
         return redirect()->route('dashboard.show', $project->slug)->with('success', 'Sukes Menambahkan Data Criteria');
     }
+
+    public function editCrt(Project $project, Criteria $criteria)
+    {
+        return view('pages.dashboard.edit-criteria', compact('project', 'criteria'));
+    }
+
+    public function updateCrt(Request $request, Project $project, Criteria $criteria)
+    {
+        $data = $request->all();
+        $data['slug'] = Str::slug($request['name']);
+        $data['project_id'] = $project->id;
+
+        $criteria->update($data);
+
+        // return $data;
+        return redirect()->route('dashboard.show', $project->slug)->with('success', 'Sukes Mengupdate Data Criteria');
+    }
 }

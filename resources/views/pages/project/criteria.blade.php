@@ -35,7 +35,12 @@
                             {{ $criteria->weight }}
                         </td>
                         <td class="px-4 py-3 text-sm">
-                            <a href="#">Edit Criteria</a>
+                            <a
+                                href="{{ route('dashboard.editCrt', [
+                                    'project' => $project->slug,
+                                    'criteria' => $criteria->slug,
+                                ]) }}">Edit
+                                Criteria</a>
                         </td>
                     </tr>
                 @empty
