@@ -6,8 +6,6 @@ use App\Models\Alternative;
 use App\Models\Criteria;
 use App\Models\Project;
 use Illuminate\Support\Str;
-use Facade\FlareClient\View;
-use GuzzleHttp\Handler\Proxy;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -73,5 +71,22 @@ class DashboardController extends Controller
         Alternative::create($data);
 
         return redirect()->route('dashboard.show', $project->slug)->with('success', 'Sukes Menambahkan Data Alternative');
+    }
+
+    public function editAlt(Project $project, Alternative $alternative)
+    {
+        return view('pages.dashboard.edit-alternative', compact('project', 'alternative'));
+    }
+
+    public function updateAlt(Request $request, Project $project, Alternative $alternative)
+    {
+        $data = $request->all();
+        $data['slug'] = Str::slug($request['name']);
+        $data['project_id'] = $project->id;
+
+        $alternative->update($data);
+
+        // return $data;
+        return redirect()->route('dashboard.show', $project->slug)->with('success', 'Sukes Mengupdate Data Alternative');
     }
 }

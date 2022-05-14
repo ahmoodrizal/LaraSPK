@@ -25,3 +25,5 @@ Route::post('dashboard/create', [DashboardController::class, 'store'])->name('da
 Route::get('dashboard/{project}', [DashboardController::class, 'show'])->name('dashboard.show');
 Route::get('dashboard/{project}/create-alternative', [DashboardController::class, 'createAlt'])->name('dashboard.createAlt');
 Route::post('dashboard/{project}/create-alternative', [DashboardController::class, 'storeAlt'])->name('dashboard.storeAlt');
+Route::get('dashboard/{project}/{alternative}/edit', [DashboardController::class, 'editAlt'])->name('dashboard.editAlt');
+Route::put('dashboard/{project}/{alternative}/edit', [DashboardController::class, 'updateAlt'])->name('dashboard.updateAlt');

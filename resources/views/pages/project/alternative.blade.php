@@ -45,7 +45,12 @@
                             {{ $alternative->c4 / 100 }}
                         </td>
                         <td class="px-4 py-3 text-sm">
-                            <a href="#">Edit Alternative</a>
+                            <a
+                                href="{{ route('dashboard.editAlt', [
+                                    'project' => $project->slug,
+                                    'alternative' => $alternative->slug,
+                                ]) }}">Edit
+                                Alternative</a>
                         </td>
                     </tr>
                 @empty
