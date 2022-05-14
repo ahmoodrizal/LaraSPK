@@ -8,6 +8,7 @@ use App\Models\Project;
 use GuzzleHttp\Handler\Proxy;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class DashboardController extends Controller
 {
@@ -122,5 +123,19 @@ class DashboardController extends Controller
 
         // return $data;
         return redirect()->route('dashboard.show', $project->slug)->with('success', 'Sukes Mengupdate Data Criteria');
+    }
+
+    public function calculate(Request $request, Alternative $alternative)
+    {
+        $project = Project::whereId($alternative->project_id)->first();
+        $data = $request->except('id', 'totalScore');
+        $data['alternatives_id'] = $request['id'];
+        $data['total_score'] = $request['totalScore'];
+
+        foreach ($data['alternatives_id'] as $key => $id) {
+            Alternative::where('id', $id)->update(['result' => $data['total_score'][$key]]);
+        }
+
+        return Redirect::back();
     }
 }
