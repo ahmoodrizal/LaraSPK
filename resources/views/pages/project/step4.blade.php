@@ -14,7 +14,7 @@
                 </tr>
             </thead>
             <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                @foreach ($project->alternatives as $alternative)
+                @forelse ($project->alternatives as $alternative)
                     <tr class="text-gray-700 dark:text-gray-400">
                         <td class="px-4 py-3 text-sm">
                             {{ $alternative->name }}
@@ -23,7 +23,11 @@
                             {{ number_format((($alternative->c1 - $data['min']['c0']) / 100 / ($data['max']['c0'] - $data['min']['c0']) / 1000) * (1000 * $project->criterias[0]->weight), 2) + number_format((($alternative->c2 - $data['min']['c1']) / 100 / ($data['max']['c1'] - $data['min']['c1']) / 1000) * (1000 * $project->criterias[1]->weight), 2) + number_format((($alternative->c3 - $data['min']['c2']) / 100 / ($data['max']['c2'] - $data['min']['c2']) / 1000) * (1000 * $project->criterias[2]->weight), 2) + number_format((($alternative->c4 - $data['min']['c3']) / 100 / ($data['max']['c3'] - $data['min']['c3']) / 1000) * (1000 * $project->criterias[3]->weight), 2) }}
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr class="text-gray-700 dark:text-gray-400">
+                        <td class="px-4 py-3 text-sm text-center" colspan="2">No Alternative Data</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
     </div>

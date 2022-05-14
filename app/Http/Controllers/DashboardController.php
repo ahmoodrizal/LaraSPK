@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Alternative;
 use App\Models\Criteria;
 use App\Models\Project;
+use GuzzleHttp\Handler\Proxy;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -38,16 +39,16 @@ class DashboardController extends Controller
     {
         $data = collect([
             'min' => [
-                'c0' => Alternative::min('c1'),
-                'c1' => Alternative::min('c2'),
-                'c2' => Alternative::min('c3'),
-                'c3' => Alternative::min('c4')
+                'c0' => Alternative::whereProjectId($project->id)->min('c1'),
+                'c1' => Alternative::whereProjectId($project->id)->min('c2'),
+                'c2' => Alternative::whereProjectId($project->id)->min('c3'),
+                'c3' => Alternative::whereProjectId($project->id)->min('c4')
             ],
             'max' => [
-                'c0' => Alternative::max('c1'),
-                'c1' => Alternative::max('c2'),
-                'c2' => Alternative::max('c3'),
-                'c3' => Alternative::max('c4')
+                'c0' => Alternative::whereProjectId($project->id)->max('c1'),
+                'c1' => Alternative::whereProjectId($project->id)->max('c2'),
+                'c2' => Alternative::whereProjectId($project->id)->max('c3'),
+                'c3' => Alternative::whereProjectId($project->id)->max('c4')
             ]
         ]);
 
@@ -88,5 +89,21 @@ class DashboardController extends Controller
 
         // return $data;
         return redirect()->route('dashboard.show', $project->slug)->with('success', 'Sukes Mengupdate Data Alternative');
+    }
+
+    public function createCrt(Project $project)
+    {
+        return view('pages.dashboard.create-criteria', compact('project'));
+    }
+
+    public function storeCrt(Request $request, Project $project)
+    {
+        $data = $request->all();
+        $data['slug'] = Str::slug($request['name']);
+        $data['project_id'] = $project->id;
+
+        Criteria::create($data);
+        // return $data;
+        return redirect()->route('dashboard.show', $project->slug)->with('success', 'Sukes Menambahkan Data Criteria');
     }
 }

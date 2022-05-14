@@ -2,6 +2,14 @@
     Criteria Data
 </h2>
 <!-- New Table -->
+@if ($project->criterias->count() != 4)
+    <div class="mb-6">
+        <a href="{{ route('dashboard.createCrt', $project->slug) }}"
+            class="px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+            Create Criteria Data
+        </a>
+    </div>
+@endif
 <div class="w-2/3 overflow-hidden rounded-lg shadow-xs">
     <div class="w-full overflow-x-auto">
         <table class="w-full whitespace-no-wrap">

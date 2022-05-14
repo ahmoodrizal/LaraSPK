@@ -18,12 +18,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Project
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('dashboard/create', [DashboardController::class, 'create'])->name('dashboard.create');
 Route::post('dashboard/create', [DashboardController::class, 'store'])->name('dashboard.store');
-
 Route::get('dashboard/{project}', [DashboardController::class, 'show'])->name('dashboard.show');
+
+// Project Alternative
 Route::get('dashboard/{project}/create-alternative', [DashboardController::class, 'createAlt'])->name('dashboard.createAlt');
 Route::post('dashboard/{project}/create-alternative', [DashboardController::class, 'storeAlt'])->name('dashboard.storeAlt');
 Route::get('dashboard/{project}/{alternative}/edit', [DashboardController::class, 'editAlt'])->name('dashboard.editAlt');
 Route::put('dashboard/{project}/{alternative}/edit', [DashboardController::class, 'updateAlt'])->name('dashboard.updateAlt');
+
+// Project Criteria
+Route::get('dashboard/{project}/create-criteria', [DashboardController::class, 'createCrt'])->name('dashboard.createCrt');
+Route::post('dashboard/{project}/create-criteria', [DashboardController::class, 'storeCrt'])->name('dashboard.storeCrt');
