@@ -17,22 +17,22 @@
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" />
             </label>
             <label class="block text-sm mb-4">
-                <span class="text-gray-700 dark:text-gray-400">C1 Score</span>
+                <span class="text-gray-700 dark:text-gray-400">C1 Score [{{ $project->criterias[0]->name }}]</span>
                 <input type="number" name="c1"
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" />
             </label>
             <label class="block text-sm mb-4">
-                <span class="text-gray-700 dark:text-gray-400">C2 Score</span>
+                <span class="text-gray-700 dark:text-gray-400">C2 Score [{{ $project->criterias[1]->name }}]</span>
                 <input type="number" name="c2"
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" />
             </label>
             <label class="block text-sm mb-4">
-                <span class="text-gray-700 dark:text-gray-400">C3 Score</span>
+                <span class="text-gray-700 dark:text-gray-400">C3 Score [{{ $project->criterias[2]->name }}]</span>
                 <input type="number" name="c3"
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" />
             </label>
             <label class="block text-sm mb-4">
-                <span class="text-gray-700 dark:text-gray-400">C4 Score</span>
+                <span class="text-gray-700 dark:text-gray-400">C4 Score [{{ $project->criterias[3]->name }}]</span>
                 <input type="number" name="c4"
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" />
             </label>
